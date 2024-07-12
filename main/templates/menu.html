@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-12 col-sm-9 rounded-5 bg-light">
+    <div class="pt-2"><h4>Bienvenido/a {{user.nombre}}</h4></div>
+    <div class="p-2 px-md-3">
+        <p>Ha sido identificado como encargado de{% if user.trabajador %} {{user.area_desempeno}}{% endif %} y cuenta con privilegios de {{user.cargo}}. Recuerde al momento de ingresar, ingresar su carga familiar para poder tener un contacto de emergencia al cual acudir en caso de que ocurra algún accidente.
+        </p>
+        
+</div>
+{% endblock content %}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+{% load static %}
+<style>
+    body {
+        background-image: url("{% static 'static/images/galaxy_planet-1943031.jpg' %}");
+        background-size: cover; 
+        background-repeat: no-repeat; 
+        background-attachment: fixed; 
+        background-position: center; 
+    }
+    .dif {
+        background: linear-gradient(rgb(38, 38, 228), rgb(209, 62, 87));  
+    }
+    .purple-background {
+        background-color: purple;
+    }
+    .icon-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px; /* Espacio inferior para separar del contenido principal */
+    }
+    .icon-container img {
+        max-width: 100px; /* Ajusta el tamaño según tus necesidades */
+        height: auto;
+    }
+    
+</style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correos Galaxy</title>
+    <link rel="stylesheet" href="{% static 'estilos.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container text-center mt-5 mb-5">
+        <div class="icon-container">
+        </div>
+        <div class="row">
+            <div class="col-12 dif rounded-5 border border-black border-3 purple-background">
+                {% if user.jefRRHH or trabRRHH %}
+                <h2 class="pt-3 text-white">
+                    Registro de empleados
+                </h2>
+                {% else %}
+                <h2 class="pt-3 text-white">
+                    Correos Galaxy 
+                </h2>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-3 nclaro text-white rounded-5 purple-background">
+                <div class="row pt-5">
+                    {% if user.is_authenticated %}
+                    {% if user.jefRRHH or user.trabRRHH %}
+                    <div class="col-12">
+                        <h5><a href="/Administracion/" class="text-white text-decoration-none purple-background">Bienvenida</a></h5>
+                    </div>
+                    <div class="col-12 pt-3">
+                        <h5><a href="/Register/" class="text-white text-decoration-none purple-background">Registrar nuevo trabajador</a>
+                        </h5>
+                    </div>
+                    <div class="col-12 pt-3">
+                        <h5><a href="/buscarEmpleado/" class="text-white text-decoration-none purple-background">Buscar trabajador</a>
+                        </h5>
+                    </div>
+                    <div class="col-12 pt-3">
+                        <h5><a href="/Gestion/" class="text-white text-decoration-none purple-background">Gestionar trabajadores</a></h5>
+                    </div>
+                </div>
+                <div class="padding-superior">
+                    <div class="pb-md-4">
+                        <div class="col-12 pt-2">
+                            <h5><a href="/Perfil/{{user.id}}" class="text-white text-decoration-none purple-background">Ver mi perfil</a></h5>
+                        </div>
+                        <div class="col-12 pt-3">
+                            <h5><a href="/Cargas/{{user.id}}" class="text-white text-decoration-none purple-background">Agregar Carga Familiar</a></h5>
+                        </div>
+                    </div>
+                    <div class="col-12 pt-2">
+                        <h5><a href="/Logout/" class="text-white text-decoration-none purple-background">Cerrar Sesión</a></h5>
+                    </div>
+                </div>
+                {% else %}
+                <div class="col-12">
+                    <h5><a href="/Menu/{{user.id}}" class="text-white text-decoration-none purple-background">Bienvenida</a></h5>
+                </div>
+                <div class="col-12 pt-3">
+                    <h5><a href="/Cargas/{{user.id}}" class="text-white text-decoration-none purple-background">Agregar Carga Familiar</a></h5>
+                </div>
+            </div>
+            <div class="padding-superior">
+                <div class="pb-md-4">
+                    <div class="col-12 pt-2">
+                        <h5><a href="/Perfil/{{user.id}}" class="text-white text-decoration-none purple-background">Ver mi perfil</a></h5>
+                    </div>
+                </div>
+                <div class="col-12 pt-2">
+                    <h5><a href="/Logout/" class="text-white text-decoration-none purple-background">Cerrar Sesión</a></h5>
+                </div>
+            </div>
+            {% endif %}
+            {% else %}
+            <div class="col-12">
+                <h5><a href="/" class="text-white text-decoration-none purple-background">Bienvenida</a></h5>
+            </div>
+            <div class="col-12 pt-3">
+                <h5><a href="/Login/" class="text-white text-decoration-none purple-background">Iniciar Sesión</a></h5>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    {% block content %}
+    {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+</html>

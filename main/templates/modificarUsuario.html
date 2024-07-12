@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="col-12 col-sm-9 rounded-5 bg-light px-2">
+    <div class="bg-white rounded-5 px-5 pt-5 pb-5 mt-5 mx-5 border border-1">
+        <form method='POST' class="pt-1">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" class='text-white btn btn-danger btn-rounded mt-3' value='Modificar'>
+        </form>
+    </div>   
+</div>
+
+{% endblock %}

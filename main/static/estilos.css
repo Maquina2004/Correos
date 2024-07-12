@@ -1,0 +1,39 @@
+.coral{
+    background-color: rgb(139, 82, 139);
+    height: 80px;
+    width: 80px;
+
+}
+.nclaro{
+    background-color: rgb(167, 52, 52);
+    height: 680px; /* Ajusta la altura según tus necesidades */
+}
+
+
+
+.padding-superior{
+    padding-top: 220px;
+}
+
+.texto-izquierda {
+    text-align: left;
+}
+
+
+.dif {
+    background: linear-gradient(rgb(38, 38, 228), rgb(209, 62, 87));  
+}
+.purple-background {
+    background-color: purple;
+    background: linear-gradient(rgb(38, 38, 228), rgb(209, 62, 87));  
+}
+.purple-background {
+    background-color: purple; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 4px 4px; /* Espaciado interior */
+    border-radius: 17px; /* Bordes redondeados */
+    display: block; /* Hace que los enlaces se comporten como bloques para ocupar toda la anchura disponible */
+    text-align: center; /* Centra el texto */
+    text-decoration: none; /* Quita la subraya predeterminada */
+    margin-bottom: 10px; /* Espacio inferior entre botones */
+}

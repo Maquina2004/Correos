@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<div class="col-12 col-sm-9 rounded-5 bg-light">
+    <div class="pt-3 pb-4"><h3><b>Iniciar Sesión</b></h3></div>
+    <div class="bg-white rounded-5 pb-5 mx-5">
+        <form method='POST' class="mx-5 pt-5">
+           
+
+            {% csrf_token %}
+            {{form.as_p}}
+
+            <input type="submit" value='Ingresar' class="mt-3 pt-1 pb-1 btn btn-outline-danger">
+        </form>
+</div>
+
+{% endblock %}

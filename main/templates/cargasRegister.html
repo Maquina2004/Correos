@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<div class="col-12 col-sm-9 rounded-5 bg-light px-4">
+    <div class="bg-white mt-2 mb-2 px-5 mx-5 rounded-5 border border-1">
+        <h3 class="pt-2 pb-3"><b>Registro de carga familiar</b></h3>
+        <form method='POST' class="pt-2">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" class='btn btn-danger btn-rounded mb-4 mt-2' value='Registrar Carga'>
+        </form>
+    </div>
+   
+</div>
+{% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/css/inputmask.min.css" rel="stylesheet"/>
+    <script src="{% static 'Register.js' %}"></script>
+{% endblock js %}
+{% endblock %}

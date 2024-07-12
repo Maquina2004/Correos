@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="col-12 col-sm-9 rounded-5 bg-light">
+<div class="pt-2"><h4>Registro de empleados</h4></div>
+<div class="p-2 px-md-3">
+    <form method='POST'>
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" class='btn btn-danger' value='Registrar'>
+    </form>
+</div>
+
+{% endblock content %}

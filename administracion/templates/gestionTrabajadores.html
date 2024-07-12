@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+
+<div class="col-9 rounded-5 bg-light px-4">
+    <div class="pt-2 pb-3">
+        <h3><b>Lista de trabajadores</b></h3>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-left">
+            <thead>
+                <tr class="table-white">
+                    <th scope="col">Rut</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope='col'>Sexo</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Área/departamento</th>
+                    <th scope="col">Cargo</th>
+                    <th scope="col">Eliminar</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for x in trabajadores %}
+                <tr class="table-warning">
+                    <td>{{x.rut}}</td>
+                    <td>{{x.nombre}}</td>
+                    <td>{{x.apellido}}</td>
+                    <td>{{x.sexo}}</td>
+                    <td>{{x.correo}}</td>
+                    <td>{{x.area_desempeno}}</td>
+                    <td>{{x.cargo}}</td>
+                    <td>
+                        <a href="/EliminarTrabajador/{{x.id}}" onclick="return confirm('¿Estas seguro de eliminar al usuario {{x.nombre}}?. Esta acción no se puede deshacer')">
+                            <img src="{% static "images/delete.png" %}">
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

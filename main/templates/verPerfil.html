@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+<div class="col-12 col-sm-9 rounded-5 bg-light pb-5">
+    <h3 class="pt-2 "><b>Bienvenido/a {{trabajador.nombre}}</b></h3>
+
+    <div class="container  px-5 mt-3 pt-2">
+        <div class="pt-3 rounded-5 pb-5 bg-white px-4 mt-3 mb-3 border border-1">
+            <div class="container pt-3 pb-3">
+                <div class="row">
+                    <div class="col-4">
+                        <h4>Perfil del usuario:</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col pt-2">
+                    <div class="input-group input-group-sm mb-2 ">
+                        <span class="input-group-text rounded-3 mx-2" id="nombres">Nombre</span>
+                        <span class="form-control rounded-3">{{trabajador.nombre}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="input-group input-group-sm mb-2">
+                        <span class="input-group-text rounded-3 mx-2" id="apellidos">Apellido</span>
+                        <span class="form-control rounded-3">{{trabajador.apellido}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="input-group input-group-sm mb-2">
+                        <span class="input-group-text rounded-3 mx-2" id="rut">Rut</span>
+                        <span class="form-control rounded-3">{{trabajador.rut}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="input-group input-group-sm mb-2">
+                        <span class="input-group-text rounded-3 mx-2" id="sexo">Sexo</span>
+                        <span class="form-control rounded-3">{{trabajador.sexo}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="input-group input-group-sm mb-2">
+                        <span class="input-group-text rounded-3 mx-2" id="telefonoP">Teléfono</span>
+                        <span class="form-control rounded-3">{{trabajador.telefono}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="input-group input-group-sm mb-2">
+                        <span class="input-group-text rounded-3 mx-2" id="correoP">Correo</span>
+                        <span class="form-control rounded-3">{{trabajador.correo}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="input-group input-group-sm mb-2">
+                        <span class="input-group-text rounded-3 mx-2" id="areD">Área/Dpto</span>
+                        <span class="form-control rounded-3">{{trabajador.area_desempeno}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="input-group input-group-sm mb-2">
+                        <span class="input-group-text rounded-3 mx-2" id="cargo">Cargo</span>
+                        <span class="form-control rounded-3">{{trabajador.cargo}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="input-group input-group-sm mb-2">
+                        <span class="input-group-text rounded-3 mx-2" id="fechaI">Fecha de ingreso</span>
+                        <span class="form-control rounded-3">{{trabajador.fecha_ingreso}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <button type="button" class="btn btn-danger mt-5 rounded-4">
+                        <a href="/ModificarDatos/{{user.id}}" class=" text-white  text-decoration-none">Modificar los datos</a></button>
+                </div>
+            </div>
+        </div>
+           
+            
+    </div>
+    <div class="container text-center pt-3">
+        <div class="row">
+            <div class="col">
+                <h5><b>Datos de las cargas familiares</b></h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="container text-center px-4 mt-3 pt-4  rounded-5 pb-4 bg-white border border-1 ">
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Rut</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Parentesco</th>
+                            <th scope="col">Modificar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{carga.rut}} </td>
+                            <td>{{carga.nombre}} </td>
+                            <td>{{carga.apellido}} </td>
+                            <td>{{carga.parentezco}} </td>
+                            <td><button type="button" class="btn pb-0 pt-0 px-2 rounded-5" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="{% static "images/usuario.png" %}"></button>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h1 class="modal-title fs-5" id="exampleModalLabel">Modificar carga familiar</h1>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <form method='POST'>
+                                            {% csrf_token %}
+                                            {{form.as_p}}
+                                            <input type="submit" class='btn btn-danger btn-rounded' value='Modificar'>
+                                          </form>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<div class="col-12 col-sm-9 rounded-5 bg-light">
+    <div class="pt-2"><h4>Buscar trabajador</h4></div>
+    <div class="p-2 px-md-3">
+        <form method='POST'>
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" class='btn btn-danger' value='Buscar'>
+        </form>
+    </div>
+    <div class="bg-white rounded-5 pb-5 mx-5">
+        <div class="row">
+            <div class="col pt-2">
+                <div class="input-group input-group-sm mb-2 ">
+                    <span class="input-group-text rounded-3 mx-2" id="nombres">Nombre</span>
+                    <span class="form-control rounded-3">{{trabajador.nombre}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="input-group input-group-sm mb-2">
+                    <span class="input-group-text rounded-3 mx-2" id="apellidos">Apellido</span>
+                    <span class="form-control rounded-3">{{trabajador.apellido}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="input-group input-group-sm mb-2">
+                    <span class="input-group-text rounded-3 mx-2" id="rut">Rut</span>
+                    <span class="form-control rounded-3">{{trabajador.rut}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="input-group input-group-sm mb-2">
+                    <span class="input-group-text rounded-3 mx-2" id="sexo">Sexo</span>
+                    <span class="form-control rounded-3">{{trabajador.sexo}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="input-group input-group-sm mb-2">
+                    <span class="input-group-text rounded-3 mx-2" id="telefonoP">Teléfono</span>
+                    <span class="form-control rounded-3">{{trabajador.telefono}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="input-group input-group-sm mb-2">
+                    <span class="input-group-text rounded-3 mx-2" id="correoP">Correo</span>
+                    <span class="form-control rounded-3">{{trabajador.correo}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="input-group input-group-sm mb-2">
+                    <span class="input-group-text rounded-3 mx-2" id="areD">Área/Dpto</span>
+                    <span class="form-control rounded-3">{{trabajador.area_desempeno}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="input-group input-group-sm mb-2">
+                    <span class="input-group-text rounded-3 mx-2" id="cargo">Cargo</span>
+                    <span class="form-control rounded-3">{{trabajador.cargo}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="input-group input-group-sm mb-2">
+                    <span class="input-group-text rounded-3 mx-2" id="fechaI">Fecha de ingreso</span>
+                    <span class="form-control rounded-3">{{trabajador.fecha_ingreso}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/css/inputmask.min.css" rel="stylesheet"/>
+    <script src="{% static 'Register.js' %}"></script>
+{% endblock js %}
+{% endblock content %}
